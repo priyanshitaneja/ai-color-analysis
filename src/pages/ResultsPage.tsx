@@ -6,7 +6,7 @@ import { PaletteGrid } from '../components/results/PaletteGrid';
 import { WowColours } from '../components/results/WowColours';
 import { FeatureSummary } from '../components/results/FeatureSummary';
 import { JewelleryRec } from '../components/results/JewelleryRec';
-import { ColourEmotions } from '../components/results/ColourEmotions';
+
 import type { ColorProfile, SeasonId } from '../types';
 
 interface LocationState {
@@ -79,8 +79,6 @@ export function ResultsPage() {
         <FeatureSummary profile={state.profile} />
 
         <JewelleryRec jewellery={season.jewellery} />
-
-        <ColourEmotions palette={season.palette} />
 
         <div className="flex justify-center pb-4">
           <motion.button

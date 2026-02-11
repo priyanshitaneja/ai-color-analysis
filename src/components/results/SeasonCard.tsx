@@ -3,6 +3,7 @@ import type { SeasonData } from '../../types';
 
 interface Props {
   season: SeasonData;
+  showLabel?: boolean;
 }
 
 function DimensionBar({ label, value, lowLabel, highLabel }: { label: string; value: number; lowLabel: string; highLabel: string }) {
@@ -36,7 +37,7 @@ function DimensionBar({ label, value, lowLabel, highLabel }: { label: string; va
   );
 }
 
-export function SeasonCard({ season }: Props) {
+export function SeasonCard({ season, showLabel = true }: Props) {
   const prefersReducedMotion = useReducedMotion();
 
   return (
@@ -48,14 +49,16 @@ export function SeasonCard({ season }: Props) {
       aria-label="Your season result"
     >
       <div className="text-center">
-        <motion.p
-          className="text-sm font-medium text-gray-600 uppercase tracking-[0.2em]"
-          initial={prefersReducedMotion ? false : { opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-        >
-          Your Season
-        </motion.p>
+        {showLabel && (
+          <motion.p
+            className="text-sm font-medium text-gray-600 uppercase tracking-[0.2em]"
+            initial={prefersReducedMotion ? false : { opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+          >
+            Your Season
+          </motion.p>
+        )}
         <motion.h2
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-semibold mt-2 tracking-tight
             bg-gradient-to-r from-pink-400 via-purple-400 to-blue-400 bg-clip-text text-transparent"

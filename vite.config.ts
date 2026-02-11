@@ -7,12 +7,15 @@ export default defineConfig({
   build: {
     rollupOptions: {
       output: {
-        manualChunks: {
-          'framer-motion': ['framer-motion'],
-          'mediapipe': ['@mediapipe/face_mesh', '@mediapipe/camera_utils'],
-          'html2canvas': ['html2canvas'],
+        manualChunks(id) {
+          if (id.includes('framer-motion')) return 'framer-motion';
+          if (id.includes('@mediapipe')) return 'mediapipe';
+          if (id.includes('html2canvas')) return 'html2canvas';
         },
       },
     },
+  },
+  ssr: {
+    noExternal: ['framer-motion'],
   },
 })

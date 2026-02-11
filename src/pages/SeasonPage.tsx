@@ -26,7 +26,7 @@ export function SeasonPage() {
       <title>{`${season.name} Color Palette — Best Colors, Jewelry & Style Guide`}</title>
       <meta
         name="description"
-        content={`Discover the ${season.name} color palette. ${season.description}. Find your best ${season.name.toLowerCase()} colors, jewelry recommendations, and style guide.`}
+        content={`Free ${season.name} color palette guide. ${season.description}. Discover your best ${season.name.toLowerCase()} colors, jewelry recommendations, and style tips — all online, no signup needed.`}
       />
       <link rel="canonical" href={canonicalUrl} />
       <meta

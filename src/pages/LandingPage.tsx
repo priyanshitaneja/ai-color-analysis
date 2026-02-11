@@ -8,19 +8,19 @@ const BASE_URL = 'https://ai-color-analysis.vercel.app';
 export function LandingPage() {
   return (
     <main className="w-full">
-      <title>Color Analysis — Discover Your Perfect Palette</title>
+      <title>Free AI Color Analysis — Discover Your Best Colors Online</title>
       <meta
         name="description"
-        content="Discover your seasonal color palette with AI-powered face analysis. Find your best colors in 60 seconds."
+        content="Free online AI color analysis. Discover your seasonal color palette with a single photo — no signup, no download. Find your best colors in 60 seconds."
       />
       <link rel="canonical" href={BASE_URL} />
       <meta
         property="og:title"
-        content="Color Analysis — Discover Your Perfect Palette"
+        content="Free AI Color Analysis — Discover Your Best Colors Online"
       />
       <meta
         property="og:description"
-        content="AI-powered seasonal color analysis. Find your best colors with a single photo."
+        content="Free online seasonal color analysis powered by AI. Find your best colors with a single photo — no signup required."
       />
       <meta property="og:url" content={BASE_URL} />
       <meta property="og:type" content="website" />
@@ -30,9 +30,9 @@ export function LandingPage() {
         data={{
           '@context': 'https://schema.org',
           '@type': 'WebApplication',
-          name: 'Color Analysis',
+          name: 'Free AI Color Analysis',
           description:
-            'AI-powered seasonal color analysis. Discover your best colors with a single photo.',
+            'Free online AI color analysis. Discover your seasonal color palette with a single photo — no signup, no download.',
           url: BASE_URL,
           applicationCategory: 'LifestyleApplication',
           offers: {

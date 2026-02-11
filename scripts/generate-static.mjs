@@ -51,12 +51,12 @@ const routes = ['/', ...seasonIds.map((id) => `/seasons/${id}`)];
 function getPageMeta(route) {
   if (route === '/') {
     return {
-      title: 'Color Analysis — Discover Your Perfect Palette',
+      title: 'Free AI Color Analysis — Discover Your Best Colors Online',
       description:
-        'Discover your seasonal color palette with AI-powered face analysis. Find your best colors in 60 seconds.',
-      ogTitle: 'Color Analysis — Discover Your Perfect Palette',
+        'Free online AI color analysis. Discover your seasonal color palette with a single photo — no signup, no download. Find your best colors in 60 seconds.',
+      ogTitle: 'Free AI Color Analysis — Discover Your Best Colors Online',
       ogDescription:
-        'AI-powered seasonal color analysis. Find your best colors with a single photo.',
+        'Free online seasonal color analysis powered by AI. Find your best colors with a single photo — no signup required.',
       ogUrl: BASE_URL,
       ogType: 'website',
     };
@@ -66,9 +66,9 @@ function getPageMeta(route) {
   const name = seasonNames[seasonId];
   return {
     title: `${name} Color Palette — Best Colors, Jewelry & Style Guide`,
-    description: `Discover the ${name} color palette. Find your best ${name.toLowerCase()} colors, jewelry recommendations, and style guide.`,
-    ogTitle: `${name} Color Palette — Seasonal Color Analysis`,
-    ogDescription: `Discover the ${name} color palette and the best colors for ${name.toLowerCase()} season.`,
+    description: `Free ${name} color palette guide. Discover your best ${name.toLowerCase()} colors, jewelry recommendations, and style tips — all online, no signup needed.`,
+    ogTitle: `${name} Color Palette — Free Seasonal Color Analysis`,
+    ogDescription: `Free ${name} color palette guide. Discover the best colors for ${name.toLowerCase()} season online.`,
     ogUrl: `${BASE_URL}${route}`,
     ogType: 'article',
   };

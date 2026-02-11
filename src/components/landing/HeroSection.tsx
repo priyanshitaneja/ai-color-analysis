@@ -61,7 +61,7 @@ export function HeroSection() {
           animate={{ opacity: 1 }}
           transition={{ delay: 0.3, duration: 0.6 }}
         >
-          AI-Powered Color Analysis
+          Free AI Color Analysis — No Signup Required
         </motion.p>
 
         <h1
@@ -82,7 +82,7 @@ export function HeroSection() {
           transition={{ delay: 0.5, duration: 0.6 }}
         >
           Find your seasonal color palette with a single photo.
-          Powered by real-time face analysis.
+          100% free, works in your browser — no signup or download needed.
         </motion.p>
 
         <motion.button

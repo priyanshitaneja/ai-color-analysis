@@ -15,7 +15,7 @@ The build pipeline runs four steps sequentially: TypeScript compilation, client-
 
 ## Tech Stack
 
-React 19, TypeScript (strict mode), Vite 7, Tailwind CSS 4, Framer Motion, MediaPipe FaceMesh, html2canvas. ESM throughout (`"type": "module"`).
+React 19, TypeScript (strict mode), Vite 7, Tailwind CSS 4, Framer Motion, MediaPipe FaceMesh. ESM throughout (`"type": "module"`).
 
 ## Architecture
 
@@ -63,7 +63,7 @@ No external state library. Local React state + custom hooks (`useWizardState`, `
 
 ### Code Splitting
 
-Vite manual chunks configured for: `framer-motion`, `@mediapipe`, `html2canvas`. Wizard and Results pages are lazy-loaded.
+Vite manual chunks configured for: `framer-motion`, `@mediapipe`. Wizard and Results pages are lazy-loaded.
 
 ## Key Types (`src/types/index.ts`)
 

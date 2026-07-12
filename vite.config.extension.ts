@@ -28,7 +28,6 @@ export default defineConfig({
         manualChunks(id) {
           if (id.includes('framer-motion')) return 'framer-motion';
           if (id.includes('@mediapipe')) return 'mediapipe';
-          if (id.includes('html2canvas')) return 'html2canvas';
         },
       },
     },

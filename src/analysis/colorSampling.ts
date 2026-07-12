@@ -94,7 +94,7 @@ function sampleRegion(
     : [0, 0, 0];
 }
 
-function averageRGB(samples: [number, number, number][]): [number, number, number] {
+export function averageRGB(samples: [number, number, number][]): [number, number, number] {
   if (samples.length === 0) return [0, 0, 0];
 
   const sum = samples.reduce(

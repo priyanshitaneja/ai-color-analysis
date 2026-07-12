@@ -101,7 +101,7 @@ export function allChecksPass(state: ValidationState): boolean {
   return Object.values(state).every(Boolean);
 }
 
-function estimateFaceSize(landmarks: NormalizedLandmark[]): number {
+export function estimateFaceSize(landmarks: NormalizedLandmark[]): number {
   const forehead = landmarks[LANDMARKS.foreheadTop];
   const chin = landmarks[LANDMARKS.chinBottom];
   const leftEar = landmarks[LANDMARKS.leftEar];
@@ -112,7 +112,7 @@ function estimateFaceSize(landmarks: NormalizedLandmark[]): number {
   return Math.max(height, width);
 }
 
-function getEyelidDistance(
+export function getEyelidDistance(
   upper: NormalizedLandmark,
   lower: NormalizedLandmark
 ): number {

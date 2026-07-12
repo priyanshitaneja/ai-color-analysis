@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "AI Color Analysis — Find Your Season",
+  "version": "1.0.0",
+  "description": "Discover your seasonal color palette from a selfie, then see how well clothing colors suit you while you shop. All analysis happens on your device.",
+  "action": { "default_title": "Open Color Analysis" },
+  "background": { "service_worker": "background.js" },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "permissions": ["activeTab", "scripting", "storage"],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self' 'wasm-unsafe-eval'; object-src 'self'"
+  }
+}

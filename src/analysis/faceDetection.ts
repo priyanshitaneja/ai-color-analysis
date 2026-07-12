@@ -6,8 +6,7 @@ let faceMeshInstance: FaceMesh | null = null;
 export function getFaceMesh(onResults: (results: Results) => void): FaceMesh {
   if (!faceMeshInstance) {
     faceMeshInstance = new FaceMesh({
-      locateFile: (file) =>
-        `https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/${file}`,
+      locateFile: (file) => `${import.meta.env.BASE_URL}mediapipe/${file}`,
     });
     faceMeshInstance.setOptions({
       maxNumFaces: 1,

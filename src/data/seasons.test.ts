@@ -34,11 +34,14 @@ describe('seasons data', () => {
       }
     });
 
-    // some palettes intentionally reuse a hex under synonym names
-    // (e.g. dark-winter "Merlot"/"Wine"), so uniqueness is on names
     it('has no duplicate color names within the palette', () => {
       const names = season.palette.map((c) => c.name.toLowerCase());
       expect(new Set(names).size).toBe(names.length);
+    });
+
+    it('has no duplicate hex codes within the palette', () => {
+      const hexes = season.palette.map((c) => c.hex.toLowerCase());
+      expect(new Set(hexes).size).toBe(hexes.length);
     });
 
     it('has named colors', () => {

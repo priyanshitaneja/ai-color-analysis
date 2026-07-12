@@ -1,5 +1,6 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useNavigate } from 'react-router-dom';
+import { resultStore, toSavedAnalysis } from '../../lib/resultStore';
 import type { ColorProfile, SeasonId } from '../../types';
 
 interface Props {
@@ -141,11 +142,12 @@ export function FeatureConfirm({ profile, seasonId, onRetake }: Props) {
           Retake Photo
         </motion.button>
         <motion.button
-          onClick={() =>
+          onClick={() => {
+            void resultStore.save(toSavedAnalysis(profile, seasonId));
             navigate('/results', {
               state: { profile, seasonId },
-            })
-          }
+            });
+          }}
           className="px-10 py-3.5 bg-text-primary text-surface rounded-full text-sm font-medium
             shadow-lg shadow-black/10 cursor-pointer w-full sm:w-auto
             focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-violet-500 focus-visible:ring-offset-2"

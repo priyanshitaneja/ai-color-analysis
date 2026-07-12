@@ -34,36 +34,34 @@ export function CameraCapture({ onCapture }: Props) {
 
   const ready = allChecksPass(validation);
 
-  const startCamera = useCallback(async (signal: AbortSignal) => {
-    // Skip if already have an active stream
-    if (streamRef.current) return;
-    try {
-      const stream = await navigator.mediaDevices.getUserMedia({
-        video: {
-          facingMode: 'user',
-          width: { ideal: 1280 },
-          height: { ideal: 720 },
-        },
-      });
-      // StrictMode guard: if effect was cleaned up while awaiting, stop the stream
-      if (signal.aborted) {
-        stream.getTracks().forEach((t) => t.stop());
-        return;
-      }
-      streamRef.current = stream;
-      if (videoRef.current) {
+  const startCamera = useCallback(
+    async (signal: AbortSignal): Promise<'ready' | 'error' | 'skipped'> => {
+      // Skip if already have an active stream
+      if (streamRef.current) return 'skipped';
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          video: {
+            facingMode: 'user',
+            width: { ideal: 1280 },
+            height: { ideal: 720 },
+          },
+        });
+        // StrictMode guard: if effect was cleaned up while awaiting, stop the stream
+        if (signal.aborted) {
+          stream.getTracks().forEach((t) => t.stop());
+          return 'skipped';
+        }
+        streamRef.current = stream;
+        if (!videoRef.current) return 'skipped';
         videoRef.current.srcObject = stream;
         await videoRef.current.play();
-        setCameraReady(true);
+        return 'ready';
+      } catch {
+        return signal.aborted ? 'skipped' : 'error';
       }
-    } catch {
-      if (!signal.aborted) {
-        setCameraError(
-          'Camera access denied. Please allow camera access in your browser settings.'
-        );
-      }
-    }
-  }, []);
+    },
+    []
+  );
 
   const stopCamera = useCallback(() => {
     if (streamRef.current) {
@@ -77,7 +75,15 @@ export function CameraCapture({ onCapture }: Props) {
 
   useEffect(() => {
     const controller = new AbortController();
-    startCamera(controller.signal);
+    void startCamera(controller.signal).then((status) => {
+      if (status === 'ready') {
+        setCameraReady(true);
+      } else if (status === 'error') {
+        setCameraError(
+          'Camera access denied. Please allow camera access in your browser settings.'
+        );
+      }
+    });
     return () => {
       controller.abort();
       stopCamera();

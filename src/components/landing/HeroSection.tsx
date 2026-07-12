@@ -7,6 +7,13 @@ const PALETTE_COLORS = [
   '#79C753', '#B565A7', '#009B77', '#EFC050',
 ];
 
+const ORBS = PALETTE_COLORS.map((color, i) => ({
+  color,
+  width: 80 + ((i * 53) % 120),
+  height: 80 + ((i * 89) % 120),
+  duration: 4 + ((i * 37) % 30) / 10,
+}));
+
 export function HeroSection() {
   const navigate = useNavigate();
   const prefersReducedMotion = useReducedMotion();
@@ -26,20 +33,20 @@ export function HeroSection() {
     >
       {/* Floating color orbs background */}
       <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-        {PALETTE_COLORS.map((color, i) => (
+        {ORBS.map((orb, i) => (
           <motion.div
             key={i}
             className="absolute rounded-full opacity-20 blur-2xl"
             style={{
-              backgroundColor: color,
-              width: 80 + Math.random() * 120,
-              height: 80 + Math.random() * 120,
+              backgroundColor: orb.color,
+              width: orb.width,
+              height: orb.height,
               left: `${10 + (i % 4) * 25}%`,
               top: `${10 + Math.floor(i / 4) * 30}%`,
             }}
             animate={orbAnimation}
             transition={{
-              duration: 4 + Math.random() * 3,
+              duration: orb.duration,
               repeat: Infinity,
               ease: 'easeInOut',
               delay: i * 0.3,

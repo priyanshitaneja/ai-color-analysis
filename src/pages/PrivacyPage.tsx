@@ -14,8 +14,8 @@ const sections = [
     body: 'If you use the browser extension on a supported shopping site, it looks at product names and images on the page only after you click the extension icon, and only on that tab. Color matching against your palette happens locally. Nothing about the products you view or your browsing is collected or sent anywhere.',
   },
   {
-    title: 'No accounts, no analytics, no third parties',
-    body: 'There is no signup, no analytics, no advertising, and no tracking of any kind. The app makes no network requests with your personal data — fonts, models, and code are all served with the app itself.',
+    title: 'No accounts, no ads, no personal tracking',
+    body: 'There is no signup, no advertising, and no tracking that identifies you. The website uses Vercel Web Analytics — a cookieless, privacy-friendly counter of anonymous page visits that cannot identify individual visitors. The browser extension includes no analytics at all. Fonts, models, and code are served with the app itself.',
   },
 ];
 

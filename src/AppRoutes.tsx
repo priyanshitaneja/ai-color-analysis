@@ -1,6 +1,7 @@
 import { lazy, Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import { LandingPage } from './pages/LandingPage';
+import { PrivacyPage } from './pages/PrivacyPage';
 import { SeasonPage } from './pages/SeasonPage';
 
 const WizardPage = lazy(() =>
@@ -20,6 +21,7 @@ export function AppRoutes() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/seasons/:seasonId" element={<SeasonPage />} />
+          <Route path="/privacy" element={<PrivacyPage />} />
           <Route
             path="/analyze"
             element={

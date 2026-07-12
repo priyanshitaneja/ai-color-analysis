@@ -46,7 +46,7 @@ const seasonNames = {
   'cool-winter': 'Cool Winter',
 };
 
-const routes = ['/', ...seasonIds.map((id) => `/seasons/${id}`)];
+const routes = ['/', ...seasonIds.map((id) => `/seasons/${id}`), '/privacy'];
 
 function getPageMeta(route) {
   if (route === '/') {
@@ -58,6 +58,19 @@ function getPageMeta(route) {
       ogDescription:
         'Free online seasonal color analysis powered by AI. Find your best colors with a single photo — no signup required.',
       ogUrl: BASE_URL,
+      ogType: 'website',
+    };
+  }
+
+  if (route === '/privacy') {
+    return {
+      title: 'Privacy Policy — AI Color Analysis',
+      description:
+        'AI Color Analysis privacy policy: all analysis runs on your device. No photos uploaded, no data collected, no tracking.',
+      ogTitle: 'Privacy Policy — AI Color Analysis',
+      ogDescription:
+        'All analysis runs on your device. No photos uploaded, no data collected, no tracking.',
+      ogUrl: `${BASE_URL}/privacy`,
       ogType: 'website',
     };
   }
